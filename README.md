@@ -1,67 +1,160 @@
-# Hi, I'm Ahmad Nasser 👋
+<a href="https://ahmadnasserx.com">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="assets/header-dark.svg">
+    <img alt="Ahmad Nasser — Gameplay Programmer. Godot 4 / GDScript · Full-stack with Next.js + Supabase. Open to internship and part-time work." src="assets/header-light.svg" width="100%">
+  </picture>
+</a>
 
-Game developer and storyteller based in Lebanon, studying at Beirut Arab University.  
-I craft games, ship web products, and write fiction on the side — because the best games start with a great story.
+<p align="center">
+  <a href="https://ahmadnasserx.com"><img alt="Portfolio: ahmadnasserx.com" src="https://img.shields.io/badge/Portfolio-ahmadnasserx.com-ff4d1a?style=for-the-badge&labelColor=111110"></a>
+  <a href="https://www.linkedin.com/in/ahmad-nasser-x/"><img alt="LinkedIn" src="https://img.shields.io/badge/LinkedIn-ahmad--nasser--x-2e2e2c?style=for-the-badge&labelColor=111110&logo=linkedin&logoColor=white"></a>
+  <a href="https://ahmadnasser.itch.io/"><img alt="itch.io" src="https://img.shields.io/badge/itch.io-play_my_games-2e2e2c?style=for-the-badge&labelColor=111110&logo=itchdotio&logoColor=white"></a>
+  <a href="mailto:ahmadnasser05@outlook.com"><img alt="Email" src="https://img.shields.io/badge/Email-ahmadnasser05%40outlook.com-2e2e2c?style=for-the-badge&labelColor=111110"></a>
+  <a href="https://ahmadnasserx.com/Ahmad-Nasser-Gameplay-Programmer.pdf"><img alt="CV (PDF)" src="https://img.shields.io/badge/CV-PDF-2e2e2c?style=for-the-badge&labelColor=111110"></a>
+</p>
 
----
+I build real-time game systems in **Godot 4** and ship full-stack products with **Next.js**. The two I'm proudest of right now: a party game where eight phones join a TV over my own WebSocket server, and **[Jadwlak](https://jadwlak.org)**, a course planner live for students across all four Beirut Arab University campuses.
 
-## 🚀 Featured Project
+```gdscript
+class_name AhmadNasser extends Developer
 
-### [Jadwlak](https://jadwlak.org) — Course Scheduling for BAU Students
+var based_in := "Tripoli, Lebanon"
+var studying := ["BSc Computer Science @ BAU", "BA English @ Lebanese University"]
+var graduating := 2027
+var speaks := ["Arabic", "English"]
 
-A free, browser-based timetable planner for Beirut Arab University students. Built because BAU's official system lets you register courses but doesn't let you *see* your week before committing.
+var ships := {
+	"games": ["Godot 4", "GDScript", "C#"],
+	"web": ["Next.js", "React", "TypeScript", "Supabase", "Vercel"],
+	"words": ["narrative design", "dialogue", "Arabic localization"],
+}
 
-- Browse the full course catalog across 4 campuses, build up to 3 parallel plans (A/B/C), and get real-time conflict detection
-- **Zero accounts for students** — all state lives in `localStorage`; no personal data collected
-- Automated daily catalog sync via GitHub Actions + Playwright headless scraper
-- CDN-first read model: one Supabase query serves the entire student body on registration day
-- Export your plan as `.ics`, print a two-page PDF, or copy CRNs in one click for BAU's registration form
+func _ready() -> void:
+	open_to(["internships", "part-time roles", "game jams"])
+```
 
-**Stack:** Next.js 15 · React 19 · Supabase (Postgres + RLS + Auth) · Upstash Redis · Vercel · Playwright · Chrome Extension (MV3)
+## Featured work
 
----
+<a href="https://ahmadnasserx.com/#p-yalla-tfaddal">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="assets/case-yalla-dark.svg">
+    <img alt="Yalla Tfaddal architecture: Phone ×8 → Cloudflare tunnel → HTTP :8080 and WebSocket :9080 → Godot host with one peer per client → 9 minigames on a shared scoring framework." src="assets/case-yalla-light.svg" width="100%">
+  </picture>
+</a>
 
-## 🎮 Games
+**Yalla Tfaddal** is a Jackbox-style party game, fully in Arabic. Up to eight players scan a QR code on the TV and play from their phone's browser, with nothing to install.
 
-| Project | Engine | |
-|---|---|---|
-| [tower-tiles](https://github.com/AhmadNasserx/tower-tiles) | Godot | ⭐ |
-| [Martian Mike](https://github.com/AhmadNasserx/Martian-Mike) | Godot | |
-| [Project Boost](https://github.com/AhmadNasserx/Project-Boost) | Godot | |
-| [Alien Attack](https://github.com/AhmadNasserx/Alien-Attack) | Godot | |
-| [Global Game Jam 2024](https://github.com/realkotob/ggj-2024) | Godot | collab |
+> **The hard part.** Godot's built-in `WebSocketMultiplayerPeer` dropped every existing client whenever a new one connected. I replaced it with my own networking layer on a raw `TCPServer`, one `WebSocketPeer` per client, then added session tokens so a phone that locks mid-game rejoins its own player slot instead of arriving as a new player.
 
----
+Also inside: six autoload singletons, nine minigames on one scene-flow and scoring framework, a QR encoder in pure GDScript, and automatic Cloudflare tunnel setup with a LAN fallback for offline play. Playtests exposed disconnect and rejoin failures; a scoped stability pass fixed them.
 
-## 💻 Tech Stack
+`Godot 4.7` `GDScript` `WebSockets` `TCP / HTTP` `Cloudflare Tunnel` · Source available on request
 
-**Web**  
-![Next.js](https://img.shields.io/badge/Next.js-black?style=for-the-badge&logo=next.js&logoColor=white) ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB) ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E) ![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)  
-![Supabase](https://img.shields.io/badge/Supabase-3ECF8E?style=for-the-badge&logo=supabase&logoColor=white) ![Postgres](https://img.shields.io/badge/postgres-%23316192.svg?style=for-the-badge&logo=postgresql&logoColor=white) ![Vercel](https://img.shields.io/badge/vercel-%23000000.svg?style=for-the-badge&logo=vercel&logoColor=white) ![Upstash](https://img.shields.io/badge/Upstash-00E9A3?style=for-the-badge&logo=upstash&logoColor=black)
+<br>
 
-**Games & Native**  
-![Godot Engine](https://img.shields.io/badge/GODOT-%23FFFFFF.svg?style=for-the-badge&logo=godot-engine) ![Unity](https://img.shields.io/badge/unity-%23000000.svg?style=for-the-badge&logo=unity&logoColor=white) ![C#](https://img.shields.io/badge/c%23-%23239120.svg?style=for-the-badge&logo=csharp&logoColor=white) ![C++](https://img.shields.io/badge/c++-%2300599C.svg?style=for-the-badge&logo=c%2B%2B&logoColor=white)
+<a href="https://jadwlak.org">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="assets/case-jadwlak-dark.svg">
+    <img alt="Jadwlak catalog pipeline: GitHub Actions (daily) → Playwright scraper → Supabase Postgres with RLS → Vercel CDN cached catalog → every student, with plans in localStorage." src="assets/case-jadwlak-light.svg" width="100%">
+  </picture>
+</a>
 
-**Mobile**  
-![Flutter](https://img.shields.io/badge/Flutter-%2302569B.svg?style=for-the-badge&logo=Flutter&logoColor=white) ![Dart](https://img.shields.io/badge/dart-%230175C2.svg?style=for-the-badge&logo=dart&logoColor=white)
+**[Jadwlak](https://jadwlak.org)** (جدولك, "your schedule") is a free timetable planner for Beirut Arab University. BAU's official system lets students register for courses but not see their week before committing. Jadwlak lets them build that week first: search the catalog, compare three plans, catch every clash, then register.
 
-**Tools**  
-![Git](https://img.shields.io/badge/git-%23F05033.svg?style=for-the-badge&logo=git&logoColor=white) ![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white) ![Figma](https://img.shields.io/badge/figma-%23F24E1E.svg?style=for-the-badge&logo=figma&logoColor=white) ![Playwright](https://img.shields.io/badge/Playwright-45ba4b?style=for-the-badge&logo=Playwright&logoColor=white) ![Notion](https://img.shields.io/badge/Notion-%23000000.svg?style=for-the-badge&logo=notion&logoColor=white)
+> **The hard part.** Registration day sends the whole student body to the planner in the same few hours. Instead of a database round-trip per visitor, the catalog is served CDN-first, so one Supabase query feeds everyone. Students never make an account: plans live in `localStorage` and no personal data is collected.
 
----
+Also inside: a headless Playwright scraper on a daily GitHub Actions schedule, real-time conflict detection across four campuses, and exports to `.ics`, a printable two-page PDF, or one-click CRN copy for BAU's registration form.
 
-## 🌐 Socials
+`Next.js 15` `React 19` `Supabase` `Postgres + RLS` `Upstash Redis` `Vercel` `Playwright` `GitHub Actions` `Chrome MV3` · [jadwlak.org ↗](https://jadwlak.org)
 
-[![Instagram](https://img.shields.io/badge/Instagram-%23E4405F.svg?logo=Instagram&logoColor=white)](https://instagram.com/ahmadnasserx) [![Email](https://img.shields.io/badge/Email-D14836?logo=gmail&logoColor=white)](mailto:ahmadnasser05@outlook.com)
+## More games
 
----
+<table>
+  <tr>
+    <td width="33%" valign="top">
+      <a href="https://ahmadnasser.itch.io/tower-tiles"><img src="assets/games/tower-tiles.webp" alt="Tower Tiles cover art" width="100%"></a>
+      <br><b>Tower Tiles</b>
+      <br><sub>3D TOWER DEFENSE · SOLO · 2025</sub>
+      <br>Grid placement with tile validation, an upgrade economy, and a spawn curve instead of waves. Web build included.
+      <br><a href="https://ahmadnasser.itch.io/tower-tiles">Play</a> · <a href="https://github.com/AhmadNasserx/tower-tiles">Source</a>
+    </td>
+    <td width="33%" valign="top">
+      <a href="https://realkotob.itch.io/the-veiled-arcana"><img src="assets/games/the-veiled-arcana.webp" alt="The Veiled Arcana cover art" width="100%"></a>
+      <br><b>The Veiled Arcana</b>
+      <br><sub>GLOBAL GAME JAM 2026 · TEAM OF 5</sub>
+      <br>Memory tiles whose matching rules change with each mask. I built the card system, the mask switch and the AudioManager.
+      <br><a href="https://realkotob.itch.io/the-veiled-arcana">Play</a>
+    </td>
+    <td width="33%" valign="top">
+      <a href="https://realkotob.itch.io/dizzy-dash"><img src="assets/games/dizzy-dash.webp" alt="Dizzy Dash cover art" width="100%"></a>
+      <br><b>Dizzy Dash</b>
+      <br><sub>GLOBAL GAME JAM 2024 · BEIRUT · TEAM OF 6</sub>
+      <br>Every martini you grab warps your controls a little more. 48 hours, one of two programmers.
+      <br><a href="https://realkotob.itch.io/dizzy-dash">Play</a> · <a href="https://github.com/realkotob/ggj-2024">Source</a>
+    </td>
+  </tr>
+  <tr>
+    <td width="33%" valign="top">
+      <a href="https://etherxgames.itch.io/last-stand-standing"><img src="assets/games/last-stand-standing.webp" alt="Last Stand Standing cover art" width="100%"></a>
+      <br><b>Last Stand Standing</b>
+      <br><sub>2D BULLET HELL · ETHERX GAMES · 2024</sub>
+      <br>A lemonade stand, a burger stand and a candy stand go to war. Three asymmetric combat styles.
+      <br><a href="https://etherxgames.itch.io/last-stand-standing">Play</a>
+    </td>
+    <td width="33%" valign="top">
+      <a href="https://etherxgames.itch.io/karma"><img src="assets/games/karma.webp" alt="Karma cover art" width="100%"></a>
+      <br><b>Karma</b>
+      <br><sub>2D ACTION · ETHERX GAMES · 2024</sub>
+      <br>Wipe out the bugs, protect your plant. Built around precise movement.
+      <br><a href="https://etherxgames.itch.io/karma">Play</a>
+    </td>
+    <td width="33%" valign="top">
+      <b>Course projects</b>
+      <br><sub>GODOT 4 · WHERE I STARTED</sub>
+      <br><br><a href="https://github.com/AhmadNasserx/Martian-Mike">Martian Mike</a>
+      <br><a href="https://github.com/AhmadNasserx/Project-Boost">Project Boost</a>
+      <br><a href="https://github.com/AhmadNasserx/Alien-Attack">Alien Attack</a>
+      <br><br><a href="https://ahmadnasser.itch.io/">Everything on itch.io ↗</a>
+    </td>
+  </tr>
+</table>
 
-## 📊 GitHub Stats
+## Toolbox
 
-![](https://github-readme-stats.vercel.app/api?username=ahmadnasserx&theme=dark&hide_border=false&include_all_commits=true&count_private=true)  
-![](https://nirzak-streak-stats.vercel.app/?user=ahmadnasserx&theme=dark&hide_border=false)  
-![](https://github-readme-stats.vercel.app/api/top-langs/?username=ahmadnasserx&theme=dark&hide_border=false&include_all_commits=true&count_private=true&layout=compact)
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/toolbox-dark.svg">
+  <img alt="Gameplay: Godot 4, GDScript, C#, Unity. Networking and architecture: WebSockets, client–server, TCP and HTTP servers, design patterns. Web and full-stack: Next.js, React, TypeScript, Supabase, Postgres with RLS, Upstash Redis, Vercel, Playwright, GitHub Actions. Writing and localization: narrative design, Arabic localization, dialogue writing." src="assets/toolbox-light.svg" width="100%">
+</picture>
 
----
+## Patch notes
 
-[![](https://visitcount.itsvg.in/api?id=ahmadnasserx&icon=10&color=0)](https://visitcount.itsvg.in)
+| When | | What changed |
+| :-- | :-- | :-- |
+| `2026-09` | **LIVE** | [Jadwlak](https://jadwlak.org) goes live for BAU's Fall 2026/27 planning |
+| `2026` | LEARNING | TechTalks Full-Stack Bootcamp: Next.js, TypeScript and PR-based code review |
+| `2026-06` | BUILDING | Yalla Tfaddal: custom WebSocket server, nine minigames, stability pass from playtests |
+| `2026-01` | JAM | Global Game Jam 2026, The Veiled Arcana, team of 5 |
+| `2025-03` | **SHIPPED** | Tower Tiles, a 3D tower defense built solo |
+
+<details>
+<summary>Older patches</summary>
+
+| When | | What changed |
+| :-- | :-- | :-- |
+| `2024` | STARTED | BSc Computer Science at BAU and BA English at the Lebanese University, concurrently |
+| `2024-06` | **SHIPPED** | Last Stand Standing and Karma with EtherX Games |
+| `2024-01` | JAM | Global Game Jam 2024, Beirut: Dizzy Dash in 48 hours on a team of 6 |
+| `2023-11` | NEW GAME | First Godot course: Ultimate Game AI for Godot Beginners |
+
+</details>
+
+## Say hi
+
+Email is the fastest way to reach me: **[ahmadnasser05@outlook.com](mailto:ahmadnasser05@outlook.com)**. I reply within a day or two. The full story, with 17 certificates and a downloadable CV, lives at **[ahmadnasserx.com](https://ahmadnasserx.com)**.
+
+<a href="https://ahmadnasserx.com">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="assets/footer-dark.svg">
+    <img alt="> continue? [Y/n] — ahmadnasserx.com" src="assets/footer-light.svg" width="100%">
+  </picture>
+</a>
