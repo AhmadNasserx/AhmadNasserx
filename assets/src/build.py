@@ -217,7 +217,7 @@ def header(theme):
 
 CASES = {
     "yalla": {
-        "index": "CASE 01", "period": "2026 – PRESENT", "title": "Yalla Tfaddal",
+        "index": "CASE 02", "period": "2026 – PRESENT", "title": "Yalla Tfaddal",
         "genre": "LOCAL MULTIPLAYER PARTY GAME · GODOT 4 · SOLO", "icon": "png",
         "nodes": [("Phone ×8", "browser, no install"), ("Cloudflare tunnel", "LAN-IP fallback"),
                   ("HTTP · WebSocket", ":8080 page · :9080 input"), ("Godot host", "1 peer per client"),
@@ -227,14 +227,14 @@ CASES = {
         "metrics": [("8", "players per room"), ("9", "minigames"), ("6", "autoload singletons"), ("0", "apps to install")],
     },
     "jadwlak": {
-        "index": "CASE 02", "period": "2026 · LIVE", "title": "Jadwlak", "title_ar": "جدولك",
-        "genre": "COURSE PLANNER · NEXT.JS 15 · SUPABASE", "icon": "svg",
-        "nodes": [("GitHub Actions", "daily schedule"), ("Playwright", "headless scraper"),
-                  ("Supabase", "Postgres + RLS"), ("Vercel CDN", "cached catalog"),
+        "index": "CASE 01", "period": "2026 · LIVE", "title": "Jadwlak", "title_ar": "جدولك",
+        "genre": "COURSE PLANNER · NEXT.JS 15 · CLOUDFLARE WORKERS", "icon": "svg",
+        "nodes": [("GitHub Actions", "BAU-calendar cron"), ("Playwright", "headless scraper"),
+                  ("Supabase", "Postgres + RLS"), ("Cloudflare edge", "catalog cached 5 min"),
                   ("Every student", "plans in localStorage")],
         "accent": 3,
-        "edges": ["run", "upsert", "1 query", "fan-out"],
-        "metrics": [("4", "campuses covered"), ("3", "parallel plans"), ("1", "query for everyone"), ("0", "student accounts")],
+        "edges": ["run", "upsert", "1 query/5 min", "fan-out"],
+        "metrics": [("4", "campuses covered"), ("74", "end-to-end tests"), ("$14", "a year to run"), ("0", "student accounts")],
     },
 }
 
@@ -336,7 +336,7 @@ GROUPS = [
      ["WebSockets", "Client–server", "TCP & HTTP servers", "Session management", "Autoload / singletons", "Design patterns", "SOLID"],
      "Yalla Tfaddal"),
     ("Web & Full-Stack", True, ["Next.js", "Supabase"],
-     ["Next.js", "React", "TypeScript", "Supabase", "Postgres & RLS", "Upstash Redis", "Vercel", "Playwright", "GitHub Actions", "Chrome MV3", "PHP & MySQL", "Flutter & Dart"],
+     ["Next.js", "React", "TypeScript", "Supabase", "Postgres & RLS", "Cloudflare Workers", "Upstash Redis", "Playwright", "GitHub Actions", "Chrome MV3", "PHP & MySQL", "Flutter & Dart"],
      "Jadwlak"),
     ("Writing & Localization", False, ["Narrative design", "Arabic localization"],
      ["Narrative design", "Arabic localization", "Dialogue writing", "Game writing", "RTL UI layout", "Creative writing"],

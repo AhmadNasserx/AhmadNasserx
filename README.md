@@ -13,7 +13,7 @@
   <a href="https://ahmadnasserx.com/Ahmad-Nasser-Gameplay-Programmer.pdf"><img alt="CV (PDF)" src="https://img.shields.io/badge/CV-PDF-2e2e2c?style=for-the-badge&labelColor=111110"></a>
 </p>
 
-I build real-time game systems in **Godot 4** and ship full-stack products with **Next.js**. The two I'm proudest of right now: a party game where eight phones join a TV over my own WebSocket server, and **[Jadwlak](https://jadwlak.org)**, a course planner live for students across all four Beirut Arab University campuses.
+I build real-time game systems in **Godot 4** and ship full-stack products with **Next.js**. The two I'm proudest of right now: **[Jadwlak](https://jadwlak.org)**, a course planner live for students across all four Beirut Arab University campuses, and a party game where eight phones join a TV over my own WebSocket server.
 
 ```gdscript
 class_name AhmadNasser extends Developer
@@ -25,7 +25,7 @@ var speaks := ["Arabic", "English"]
 
 var ships := {
 	"games": ["Godot 4", "GDScript", "C#"],
-	"web": ["Next.js", "React", "TypeScript", "Supabase", "Vercel"],
+	"web": ["Next.js", "React", "TypeScript", "Supabase", "Cloudflare"],
 	"words": ["narrative design", "dialogue", "Arabic localization"],
 }
 
@@ -34,6 +34,23 @@ func _ready() -> void:
 ```
 
 ## Featured work
+
+<a href="https://jadwlak.org">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="assets/case-jadwlak-dark.svg">
+    <img alt="Jadwlak catalog pipeline: GitHub Actions on a BAU-calendar schedule → Playwright scraper → Supabase Postgres with RLS → Cloudflare edge cache (5 minutes) → every student, with plans in localStorage." src="assets/case-jadwlak-light.svg" width="100%">
+  </picture>
+</a>
+
+**[Jadwlak](https://jadwlak.org)** (جدولك, "your schedule") is a free timetable planner for Beirut Arab University. BAU's official system lets students register for courses but not see their week before committing. Jadwlak lets them build that week first: search the catalog, compare three plans, catch every clash, then register.
+
+> **The hard part.** Registration day sends the whole student body to the planner in the same few hours, and it all has to fit in free tiers. The catalog API is cached at Cloudflare's edge for five minutes, so the entire campus costs one Supabase query per five minutes, and returning visitors get a `304` instead of the full catalog. Students never make an account: plans live in `localStorage` and no personal data is collected. Running cost: the domain, about $14 a year.
+
+Also inside: a headless Playwright scraper on GitHub Actions, scheduled around BAU's registration calendar; Upstash sliding-window rate limits on every API route; a per-request nonce CSP; 74 Playwright end-to-end tests, 29 of them security checks; a Manifest V3 Chrome extension that imports offerings from BAU's portal; and a move from Vercel to Cloudflare Workers through OpenNext.
+
+`Next.js 15` `React 19` `Cloudflare Workers` `OpenNext` `Supabase` `Postgres + RLS` `Upstash Redis` `Playwright` `GitHub Actions` `Chrome MV3` · [jadwlak.org ↗](https://jadwlak.org)
+
+<br>
 
 <a href="https://ahmadnasserx.com/#p-yalla-tfaddal">
   <picture>
@@ -49,23 +66,6 @@ func _ready() -> void:
 Also inside: six autoload singletons, nine minigames on one scene-flow and scoring framework, a QR encoder in pure GDScript, and automatic Cloudflare tunnel setup with a LAN fallback for offline play. Playtests exposed disconnect and rejoin failures; a scoped stability pass fixed them.
 
 `Godot 4.7` `GDScript` `WebSockets` `TCP / HTTP` `Cloudflare Tunnel` · Source available on request
-
-<br>
-
-<a href="https://jadwlak.org">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="assets/case-jadwlak-dark.svg">
-    <img alt="Jadwlak catalog pipeline: GitHub Actions (daily) → Playwright scraper → Supabase Postgres with RLS → Vercel CDN cached catalog → every student, with plans in localStorage." src="assets/case-jadwlak-light.svg" width="100%">
-  </picture>
-</a>
-
-**[Jadwlak](https://jadwlak.org)** (جدولك, "your schedule") is a free timetable planner for Beirut Arab University. BAU's official system lets students register for courses but not see their week before committing. Jadwlak lets them build that week first: search the catalog, compare three plans, catch every clash, then register.
-
-> **The hard part.** Registration day sends the whole student body to the planner in the same few hours. Instead of a database round-trip per visitor, the catalog is served CDN-first, so one Supabase query feeds everyone. Students never make an account: plans live in `localStorage` and no personal data is collected.
-
-Also inside: a headless Playwright scraper on a daily GitHub Actions schedule, real-time conflict detection across four campuses, and exports to `.ics`, a printable two-page PDF, or one-click CRN copy for BAU's registration form.
-
-`Next.js 15` `React 19` `Supabase` `Postgres + RLS` `Upstash Redis` `Vercel` `Playwright` `GitHub Actions` `Chrome MV3` · [jadwlak.org ↗](https://jadwlak.org)
 
 ## More games
 
@@ -123,14 +123,14 @@ Also inside: a headless Playwright scraper on a daily GitHub Actions schedule, r
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/toolbox-dark.svg">
-  <img alt="Gameplay: Godot 4, GDScript, C#, Unity. Networking and architecture: WebSockets, client–server, TCP and HTTP servers, design patterns. Web and full-stack: Next.js, React, TypeScript, Supabase, Postgres with RLS, Upstash Redis, Vercel, Playwright, GitHub Actions. Writing and localization: narrative design, Arabic localization, dialogue writing." src="assets/toolbox-light.svg" width="100%">
+  <img alt="Gameplay: Godot 4, GDScript, C#, Unity. Networking and architecture: WebSockets, client–server, TCP and HTTP servers, design patterns. Web and full-stack: Next.js, React, TypeScript, Supabase, Postgres with RLS, Cloudflare Workers, Upstash Redis, Playwright, GitHub Actions. Writing and localization: narrative design, Arabic localization, dialogue writing." src="assets/toolbox-light.svg" width="100%">
 </picture>
 
 ## Patch notes
 
 | When | | What changed |
 | :-- | :-- | :-- |
-| `2026-09` | **LIVE** | [Jadwlak](https://jadwlak.org) goes live for BAU's Fall 2026/27 planning |
+| `2026-09` | **LIVE** | [Jadwlak](https://jadwlak.org) goes live for BAU's Fall 2026/27 planning, then moves from Vercel to Cloudflare Workers |
 | `2026` | LEARNING | TechTalks Full-Stack Bootcamp: Next.js, TypeScript and PR-based code review |
 | `2026-06` | BUILDING | Yalla Tfaddal: custom WebSocket server, nine minigames, stability pass from playtests |
 | `2026-01` | JAM | Global Game Jam 2026, The Veiled Arcana, team of 5 |
